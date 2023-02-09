@@ -9,7 +9,25 @@
     <script src="https://kit.fontawesome.com/7fd90f7e36.js" crossorigin="anonymous"></script>
 
     <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- flowbite -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'sans-serif'],
+        },
+      }
+    }
+  }
+</script>
     <style>
         @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
         .font-family-karla { font-family: karla; }
@@ -91,10 +109,13 @@
                 <i class="fas fa-table mr-3"></i>
                 Tables
             </a>
-            <a href="forms.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
-                <i class="fas fa-align-left mr-3"></i>
-                Forms
-            </a>
+            <a
+          href="addEmployee.html"
+          class="flex items-center text-white py-4 pl-6 nav-item"
+        >
+        <i class="fa-solid fa-user-plus mr-3"></i>
+          Add Employee
+        </a>
             <a href="calendar.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-calendar mr-3"></i>
                 Calendar
@@ -142,10 +163,13 @@
                     <i class="fas fa-table mr-3"></i>
                     Tables
                 </a>
-                <a href="forms.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                    <i class="fas fa-align-left mr-3"></i>
-                    Forms
-                </a>
+                <a
+                href="addEmployee.html"
+                class="flex items-center active-nav-link text-white py-4 pl-6 nav-item"
+              >
+                <i class="fa-solid fa-user-plus mr-3"></i>
+                Add Employee
+              </a>
                 <a href="calendar.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
                     <i class="fas fa-calendar mr-3"></i>
                     Calendar
@@ -164,11 +188,132 @@
             <main class="w-full flex-grow p-6">
                 <h1 class="text-3xl text-black pb-6">Tables</h1>
                 <div class="w-full mt-6">
+
                     <!-- CRUD -->
-                    <p class="flex justify-end mb-5">
-                       <a href="create.html"><i class="fa-solid fa-plus mr-5 text-green-600"> Add</i></a>
-                    </p>
-                    <!-- end of CRUD -->
+
+                    <div class="flex justify-end mb-5">
+                       <button data-bs-toggle="modal"
+                       data-bs-target="#exampleModalCenteredScrollable"><i class="fa-solid fa-plus mr-5 text-green-600"> Add</i></button>
+                       <div
+                        class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
+                    id="exampleModalCenteredScrollable"
+                        tabindex="-1"
+                        aria-labelledby="exampleModalCenteredScrollable"
+                        aria-modal="true"
+                        role="dialog"
+                        >
+    <div
+      class="modal-dialog modal-dialog-centered modal-dialog-scrollable relative w-auto pointer-events-none"
+    >
+      <div
+        class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current"
+      >
+        <div
+          class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md"
+        >
+          <h5
+            class="text-xl font-medium leading-normal text-gray-800"
+            id="exampleModalCenteredScrollableLabel"
+          >
+            <img src="/Capstone_01/images/logo.png" alt="" class="w-10 h-10" />
+          </h5>
+          <button
+            type="button"
+            class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body relative p-4">
+          <form>
+            <p class="mt-1 mb-4 pt-6 text-center font-semibold">
+              Add Property
+            </p>
+            <!-- Property type -->
+            <div class="mb-4">
+              <input
+                type="text"
+                class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                id="exampleFormControlInput1"
+                placeholder="Property Type"
+              />
+            </div>
+            <!-- Location -->
+            <div class="mb-4">
+              <input
+                type="text"
+                class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                id="exampleFormControlInput1"
+                placeholder="Location"
+              />
+            </div>
+            <!-- Model -->
+            <div class="mb-4">
+              <input
+                type="text"
+                class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                id="exampleFormControlInput1"
+                placeholder="Model"
+              />
+            </div>
+            <!-- Price -->
+            <div class="mb-4">
+              <select
+                name=""
+                id=""
+                class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+              >
+                <option value="">₱ 10,000</option>
+                <option value="">₱ 15,000</option>
+                <option value="">₱ 20,000</option>
+                <option value="">₱ 25,000</option>
+              </select>
+            </div>
+            
+            <!-- Image Upload -->
+            <div class="mb-6">
+              <label for="UploadImage" class="inline-block text-lg mb-2">
+                Upload Image
+              </label>
+              <input type="file" class="p-2 w-full" name="logo" />
+            </div>
+
+            <!-- Description -->
+            <div class="mb-4">
+              <input
+                type="text"
+                class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                id="exampleFormControlInput1"
+                placeholder="Description"
+              />
+            </div>
+          </form>
+        </div>
+        <div
+          class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md"
+        >
+          <button
+            type="button"
+            class="inline-block px-6 py-2.5 font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button
+            type="button"
+            class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1"
+          >
+            Save changes
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+                   
+
+                    <!-- END of CRUD -->
+
                     <p class="text-xl flex items-center pb-3">
                         <i class="fas fa-list mr-3"></i> Available
                     </p>
@@ -191,27 +336,170 @@
                                     <td class="w-1/3 text-left py-3 px-4">Smith</td>
                                     <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="tel:622322662">622322662</a></td>
                                     <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="mailto:jonsmith@mail.com">jonsmith@mail.com</a></td>
-                                    <td class="text-center py-3 px-4"><a href="#"><i class="fa-solid fa-pen-to-square text-blue-500"></i></td></a>
-                                    <td class="text-center py-3 px-4"><a href="#"><i class="fa-solid fa-trash text-red-500"></i></td></a>
+
+                                    <!-- Update Modal -->
+
+                                    <td class="text-center py-3 px-4"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#ModalUpdate"><button><i class="fa-solid fa-pen-to-square text-blue-500"></i></td></button>
+
+                                    <div
+                                    class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
+                                    id="exampleModalCenter"
+                                    tabindex="-1"
+                                    aria-labelledby="exampleFormControlInput1"
+                                    aria-modal="true"
+                                    role="dialog"
+                                  >
+                                    <div
+                                      class="modal-dialog modal-dialog-centered relative w-auto pointer-events-none"
+                                    >
+                                      <div
+                                        class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current"
+                                      >
+                                        <div
+                                          class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md"
+                                        >
+                                          <h5
+                                            class="text-xl font-medium leading-normal text-gray-800"
+                                            id="exampleModalScrollableLabel"
+                                          >
+                                            Update
+                                          </h5>
+                                          <button
+                                            type="button"
+                                            class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
+                                            data-bs-dismiss="modal"
+                                            aria-label="Close"
+                                          ></button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                
+                                  <div
+                                    class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
+                                    id="ModalUpdate"
+                                    tabindex="-1"
+                                    aria-labelledby="exampleFormControlInput1"
+                                    aria-modal="true"
+                                    role="dialog"
+                                  >
+                                    <div
+                                      class="modal-dialog modal-dialog-centered modal-dialog-scrollable relative w-auto pointer-events-none"
+                                    >
+                                      <div
+                                        class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current"
+                                      >
+                                        <div class="modal-body relative p-4">
+                                          <form>
+                                            <p class="mt-1 mb-4 pt-6 text-center font-semibold">
+                                              Update Property
+                                            </p>
+                                            <!-- Property type -->
+                                            <div class="mb-4">
+                                              <input
+                                                type="text"
+                                                class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                                id="exampleFormControlInput1"
+                                                placeholder="Property Type"
+                                              />
+                                            </div>
+                                            <!-- Location -->
+                                            <div class="mb-4">
+                                              <input
+                                                type="text"
+                                                class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                                id="exampleFormControlInput1"
+                                                placeholder="Location"
+                                              />
+                                            </div>
+
+                                            <!-- Model -->
+                                            <div class="mb-4">
+                                              <input
+                                                type="text"
+                                                class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                                id="exampleFormControlInput1"
+                                                placeholder="Model"
+                                              />
+                                            </div>
+                                            <!-- Price -->
+                                            <div class="mb-4">
+                                              <select
+                                                name=""
+                                                id=""
+                                                class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                              >
+                                                <option value="">₱ 10,000</option>
+                                                <option value="">₱ 15,000</option>
+                                                <option value="">₱ 20,000</option>
+                                                <option value="">₱ 25,000</option>
+                                              </select>
+                                            </div>
+
+                                             <!-- Image Upload -->
+                                                <div class="mb-6">
+                                                    <label for="UploadImage" class="inline-block text-lg mb-2">
+                                                       Upload Image
+                                                    </label>
+                                                <input type="file" class="p-2 w-full" name="logo" />
+                                                    </div>
+                                            <!-- Description -->
+                                            <div class="mb-4">
+                                              <input
+                                                type="text"
+                                                class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                                id="exampleFormControlInput1"
+                                                placeholder="Description"
+                                              />
+                                            </div>
+                                          </form>
+                                        </div>
+                                        <div
+                                          class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md"
+                                        >
+                                          <button
+                                            type="button"
+                                            class="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
+                                            data-bs-dismiss="modal"
+                                          >
+                                            Close
+                                          </button>
+                                          <button
+                                            type="button"
+                                            class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1"
+                                          >
+                                            Save changes
+                                          </button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                <!--End of Update Modal -->
+
+                                    
+                                    <!-- Delete -->
+                                    <td class="text-center py-3 px-4" data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button"><a href="#"><i class="fa-solid fa-trash text-red-500"></i></td></a>
+
+                                    <div id="popup-modal" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
+                                        <div class="relative w-full h-full max-w-md md:h-auto">
+                                            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                                                <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-hide="popup-modal">
+                                                    <span class="sr-only">Cancel</span>
+                                                </button>
+                                                <div class="p-6 text-center">
+                                                    <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Are you sure you want to delete this product?</h3>
+                                                    <button data-modal-hide="popup-modal" type="button" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                                                        Yes, I'm sure
+                                                    </button>
+                                                    <button data-modal-hide="popup-modal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">No, cancel</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </tr>
-                                <tr class="bg-gray-200">
-                                    <td class="w-1/3 text-left py-3 px-4">Emma</td>
-                                    <td class="w-1/3 text-left py-3 px-4">Johnson</td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="tel:622322662">622322662</a></td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="mailto:jonsmith@mail.com">jonsmith@mail.com</a></td>
-                                </tr>
-                                <tr>
-                                    <td class="w-1/3 text-left py-3 px-4">Oliver</td>
-                                    <td class="w-1/3 text-left py-3 px-4">Williams</td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="tel:622322662">622322662</a></td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="mailto:jonsmith@mail.com">jonsmith@mail.com</a></td>
-                                </tr>
-                                <tr class="bg-gray-200">
-                                    <td class="w-1/3 text-left py-3 px-4">Isabella</td>
-                                    <td class="w-1/3 text-left py-3 px-4">Brown</td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="tel:622322662">622322662</a></td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="mailto:jonsmith@mail.com">jonsmith@mail.com</a></td>
-                                </tr>
+                               
                             </tbody>
                         </table>
                     </div>
@@ -238,24 +526,7 @@
                                     <td class="py-4 px-6 border-b border-grey-light">622322662</td>
                                     <td class="py-4 px-6 border-b border-grey-light">jonsmith@mail.com</td>
                                 </tr>
-                                <tr class="hover:bg-grey-lighter bg-gray-200">
-                                    <td class="py-4 px-6 border-b border-grey-light">Lian</td>
-                                    <td class="py-4 px-6 border-b border-grey-light">Smith</td>
-                                    <td class="py-4 px-6 border-b border-grey-light">622322662</td>
-                                    <td class="py-4 px-6 border-b border-grey-light">jonsmith@mail.com</td>
-                                </tr>
-                                <tr class="hover:bg-grey-lighter">
-                                    <td class="py-4 px-6 border-b border-grey-light">Lian</td>
-                                    <td class="py-4 px-6 border-b border-grey-light">Smith</td>
-                                    <td class="py-4 px-6 border-b border-grey-light">622322662</td>
-                                    <td class="py-4 px-6 border-b border-grey-light">jonsmith@mail.com</td>
-                                </tr>
-                                <tr class="hover:bg-grey-lighter bg-gray-200">
-                                    <td class="py-4 px-6 border-b border-grey-light">Lian</td>
-                                    <td class="py-4 px-6 border-b border-grey-light">Smith</td>
-                                    <td class="py-4 px-6 border-b border-grey-light">622322662</td>
-                                    <td class="py-4 px-6 border-b border-grey-light">jonsmith@mail.com</td>
-                                </tr>
+                               
                             </tbody>
                         </table>
                     </div>       
@@ -282,30 +553,17 @@
                                     <td class="py-4 px-6 border-b border-grey-light">622322662</td>
                                     <td class="py-4 px-6 border-b border-grey-light">jonsmith@mail.com</td>
                                 </tr>
-                                <tr class="hover:bg-grey-lighter bg-gray-200">
-                                    <td class="py-4 px-6 border-b border-grey-light">Lian</td>
-                                    <td class="py-4 px-6 border-b border-grey-light">Smith</td>
-                                    <td class="py-4 px-6 border-b border-grey-light">622322662</td>
-                                    <td class="py-4 px-6 border-b border-grey-light">jonsmith@mail.com</td>
-                                </tr>
-                                <tr class="hover:bg-grey-lighter">
-                                    <td class="py-4 px-6 border-b border-grey-light">Lian</td>
-                                    <td class="py-4 px-6 border-b border-grey-light">Smith</td>
-                                    <td class="py-4 px-6 border-b border-grey-light">622322662</td>
-                                    <td class="py-4 px-6 border-b border-grey-light">jonsmith@mail.com</td>
-                                </tr>
-                                <tr class="hover:bg-grey-lighter bg-gray-200">
-                                    <td class="py-4 px-6 border-b border-grey-light">Lian</td>
-                                    <td class="py-4 px-6 border-b border-grey-light">Smith</td>
-                                    <td class="py-4 px-6 border-b border-grey-light">622322662</td>
-                                    <td class="py-4 px-6 border-b border-grey-light">jonsmith@mail.com</td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>       
                 </div>
 
-                <div class="w-full mt-12">
+                
+                 <div class="flex justify-end mb-5">
+                      <a href="forms.html"><i class="fa-solid fa-plus mr-5 text-green-600"> Add</i></a>
+                    </div>
+
+                    <!-- Employee Table -->
                     <p class="text-xl pb-3 flex items-center">
                         <i class="fas fa-list mr-3"></i> Employee
                     </p>
@@ -360,101 +618,7 @@
                                             class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
                                             <span aria-hidden
                                                 class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-                                            <span class="relative">Activo</span>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                        <div class="flex items-center">
-                                            <div class="flex-shrink-0 w-10 h-10">
-                                                <img class="w-full h-full rounded-full"
-                                                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
-                                                    alt="" />
-                                            </div>
-                                            <div class="ml-3">
-                                                <p class="text-gray-900 whitespace-no-wrap">
-                                                    Blake Bowman
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                        <p class="text-gray-900 whitespace-no-wrap">Editor</p>
-                                    </td>
-                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                        <p class="text-gray-900 whitespace-no-wrap">
-                                            Jan 01, 2020
-                                        </p>
-                                    </td>
-                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                        <span
-                                            class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                            <span aria-hidden
-                                                class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-                                            <span class="relative">Activo</span>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                        <div class="flex items-center">
-                                            <div class="flex-shrink-0 w-10 h-10">
-                                                <img class="w-full h-full rounded-full"
-                                                    src="https://images.unsplash.com/photo-1540845511934-7721dd7adec3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
-                                                    alt="" />
-                                            </div>
-                                            <div class="ml-3">
-                                                <p class="text-gray-900 whitespace-no-wrap">
-                                                    Dana Moore
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                        <p class="text-gray-900 whitespace-no-wrap">Editor</p>
-                                    </td>
-                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                        <p class="text-gray-900 whitespace-no-wrap">
-                                            Jan 10, 2020
-                                        </p>
-                                    </td>
-                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                        <span
-                                            class="relative inline-block px-3 py-1 font-semibold text-orange-900 leading-tight">
-                                            <span aria-hidden
-                                                class="absolute inset-0 bg-orange-200 opacity-50 rounded-full"></span>
-                                            <span class="relative">Suspended</span>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-5 py-5 bg-white text-sm">
-                                        <div class="flex items-center">
-                                            <div class="flex-shrink-0 w-10 h-10">
-                                                <img class="w-full h-full rounded-full"
-                                                    src="https://images.unsplash.com/photo-1522609925277-66fea332c575?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&h=160&w=160&q=80"
-                                                    alt="" />
-                                            </div>
-                                            <div class="ml-3">
-                                                <p class="text-gray-900 whitespace-no-wrap">
-                                                    Alonzo Cox
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="px-5 py-5 bg-white text-sm">
-                                        <p class="text-gray-900 whitespace-no-wrap">Admin</p>
-                                    </td>
-                                    <td class="px-5 py-5 bg-white text-sm">
-                                        <p class="text-gray-900 whitespace-no-wrap">Jan 18, 2020</p>
-                                    </td>
-                                    <td class="px-5 py-5 bg-white text-sm">
-                                        <span
-                                            class="relative inline-block px-3 py-1 font-semibold text-red-900 leading-tight">
-                                            <span aria-hidden
-                                                class="absolute inset-0 bg-red-200 opacity-50 rounded-full"></span>
-                                            <span class="relative">Inactive</span>
+                                            <span class="relative">Active</span>
                                         </span>
                                     </td>
                                 </tr>
@@ -475,5 +639,8 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+    <!-- flowbite -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
 </body>
 </html>
